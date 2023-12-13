@@ -1,5 +1,6 @@
 from datetime import timedelta
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from openai import OpenAI
 import os
 # Import dotenv
@@ -7,6 +8,11 @@ from dotenv import load_dotenv
 
 # Initialize Flask app
 app = Flask(__name__)
+
+# Configure CORS to allow specific origin
+CORS(app, origins=["https://job-description-tool.vercel.app"])
+
+
 
 # Load environment variables from .env file
 load_dotenv()
